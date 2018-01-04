@@ -4,7 +4,7 @@
   "description": "Simple logging utility.",
   "main": "treebark.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/Kruithne/treebark/issues"
   },
-  "homepage": "https://github.com/Kruithne/treebark#readme"
+  "homepage": "https://github.com/Kruithne/treebark#readme",
+  "dependencies": {
+    "strip-ansi": "^4.0.0"
+  }
 }
