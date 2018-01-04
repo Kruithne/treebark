@@ -77,14 +77,11 @@ class Logger {
 	 * @returns {Logger}
 	 */
 	write(message, ...args) {
-		if (typeof message !== 'string')
-			return this;
-
 		let now = +new Date();
 		let offset = '+' + ((now - this.lastMessageTime) / 1000).toFixed(2) + ' ';
 
 		let padding = '    '.repeat(this.indentDepth);
-		let output = offset + this.prefix + padding + util.format(message, ...args);
+		let output = offset + this.prefix + padding + util.format(message.toString(), ...args);
 
 		console.info(output);
 		if (this.fileStream)
