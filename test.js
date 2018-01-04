@@ -34,6 +34,11 @@ log.write('This is prefixed!');
 log.setPrefix('[Different Prefix]');
 log.write('This is prefixed differently!');
 
+// Blank Lines //
+log.write('Hello...');
+log.blank(2);
+log.write('...world!');
+
 // Time Check //
 setTimeout(() => {
 	log.write('This is delayed.');

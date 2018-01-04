@@ -172,6 +172,17 @@ class Logger {
 	group() {
 		return new SubLogger(this);
 	}
+
+	/**
+	 * Insert `count` amount of blank lines.
+	 * @param {number} [count]
+	 */
+	blank(count = 1) {
+		for (let i = 0; i < count; i++)
+			this.write('');
+
+		return this;
+	}
 }
 
 class SubLogger extends Logger {
