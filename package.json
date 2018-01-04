@@ -1,0 +1,24 @@
+{
+  "name": "treebark",
+  "version": "1.0.0",
+  "description": "Simple logging utility.",
+  "main": "treebark.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kruithne/treebark.git"
+  },
+  "keywords": [
+    "logging",
+    "log",
+    "console"
+  ],
+  "author": "Kruithne <kruithne@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kruithne/treebark/issues"
+  },
+  "homepage": "https://github.com/Kruithne/treebark#readme"
+}
