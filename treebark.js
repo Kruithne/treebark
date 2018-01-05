@@ -96,6 +96,24 @@ class Logger {
 	}
 
 	/**
+	 * Print an error to the log.
+	 * @param {string} message
+	 * @param {...} args
+	 */
+	error(message, ...args) {
+		this.write('\u001b[31mERR\u001b[0m ' + message, ...args);
+	}
+
+	/**
+	 * Print a warning to the log.
+	 * @param {string} message
+	 * @param {...} args
+	 */
+	warn(message, ...args) {
+		this.write('\u001b[33mWARN\u001b[0m ' + message, ...args);
+	}
+
+	/**
 	 * Set the prefix for this logger.
 	 * @param {string} [prefix]
 	 */
