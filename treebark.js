@@ -2,6 +2,7 @@
 const util = require('util');
 const fs = require('fs');
 const stripAnsi = require('strip-ansi');
+const moment = require('moment');
 
 class Logger {
 	/**
@@ -37,6 +38,20 @@ class Logger {
 			this.parent.lastMessageTime = value;
 		else
 			this._lastMessageTime = value;
+	}
+
+	/**
+	 * Get the time format to use for this logger.
+	 * @returns {string|null}
+	 */
+	get timeFormat() {
+		if (this._timeFormat)
+			return this._timeFormat;
+
+		if (this.parent)
+			return this.parent.timeFormat;
+
+		return null;
 	}
 
 	/**
@@ -77,11 +92,16 @@ class Logger {
 	 * @returns {Logger}
 	 */
 	write(message, ...args) {
+		let offset;
 		let now = +new Date();
-		let offset = '+' + ((now - this.lastMessageTime) / 1000).toFixed(2) + ' ';
+
+		if (this.timeFormat !== null)
+			offset = moment().format(this.timeFormat);
+		else
+			offset = '+' + ((now - this.lastMessageTime) / 1000).toFixed(2);
 
 		let padding = '    '.repeat(this.indentDepth);
-		let output = offset + this.prefix + padding + util.format(message.toString(), ...args);
+		let output = offset + ' ' + this.prefix + padding + util.format(message.toString(), ...args);
 
 		console.info(output);
 		if (this.fileStream)
@@ -131,6 +151,14 @@ class Logger {
 
 		if (typeof file === 'string')
 			this.stream = fs.createWriteStream(file, { encoding: 'utf8' });
+	}
+
+	/**
+	 * Set the moment.js time format to prefix with.
+	 * @param {string|null} format
+	 */
+	setTimeFormat(format) {
+		this._timeFormat = format;
 	}
 
 	/**

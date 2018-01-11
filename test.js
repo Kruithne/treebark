@@ -39,6 +39,12 @@ log.write('Hello...');
 log.blank(2);
 log.write('...world!');
 
+// Formatted Time Prefix //
+log.setTimeFormat('DD/MM/YYYY HH:mm:ss');
+log.write('Hello!');
+log.setTimeFormat(null);
+log.write('World!');
+
 // Time Check //
 setTimeout(() => {
 	log.write('This is delayed.');

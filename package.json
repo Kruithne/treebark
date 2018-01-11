@@ -1,6 +1,6 @@
 {
   "name": "treebark",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Simple logging utility.",
   "main": "treebark.js",
   "scripts": {
@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/Kruithne/treebark#readme",
   "dependencies": {
+    "moment": "^2.20.1",
     "strip-ansi": "^4.0.0"
   }
 }
