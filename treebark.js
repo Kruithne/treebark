@@ -109,8 +109,10 @@ class Logger {
 
 		this.lastMessageTime = now;
 
-		if (this._indentTemp)
+		if (this._indentTemp) {
 			this.unindent();
+			this._indentTemp = false;
+		}
 
 		return this;
 	}
